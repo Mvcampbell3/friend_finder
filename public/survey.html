@@ -299,16 +299,15 @@
         <div class="line"></div>
     </div>
     <button id="add">Add</button>
+    <a href="/">Home</a>
 
     <!-- ----------------------------------------- -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <script>
         const check = [].slice.call(document.querySelectorAll(".check"));
         const add = document.getElementById("add");
-        add.addEventListener("click", function() {
-            let score = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
-            console.log(score);
-        })
 
         let q1 = 0;
         let q2 = 0;
@@ -320,6 +319,19 @@
         let q8 = 0;
         let q9 = 0;
         let q10 = 0;
+
+        add.addEventListener("click", function () {
+            let score = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+            console.log(score);
+            let newDragonborn = {
+                name: "michael",
+                score: score
+            }
+            $.post("/api/dragonborn", newDragonborn, function(){
+                alert("this works");
+            })
+        });
+        
 
         check.forEach(one => {
 

@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homepage</title>
 </head>
+
 <body>
     <h1>Hello World</h1>
+
+    <a href="/survey">Survey</a>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $.get("/api/dragonborn", (data) => {
+            console.log(data);
+            console.log(data.length)
+            checkScore(data)
+
+        })
+        
+        function checkScore (data) {
+            let newCheck = data[data.length -1].scores.map(each => parseInt(each));
+            console.log(newCheck);
+            $.get("/api/followers", (all) => {
+                
+                
+                console.log(newCheck)
+            })
+        }
+
+    </script>
 </body>
+
 </html>

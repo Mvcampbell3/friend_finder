@@ -1,13 +1,19 @@
-const followers = require("../app/data/followers")
+const followers = require("../app/data/followers");
+const dragonborns = require("../app/data/dragonborns")
+const path = require("path");
 
 module.exports = function(app) {
     app.get("/api/followers", (req, res) => {
         res.json(followers);
     })
 
-    app.post("/api/followers", (req, res) => {
-        let newFriend = req.body;
-        followers.push(newFriend);
-        res.send(followers)
+    app.get("/api/dragonborn", (req,res) => {
+        res.json(dragonborns);
+    })
+
+    app.post("/api/dragonborn", (req, res) => {
+        let newDragBorn = req.body;
+        dragonborns.push(newDragBorn)
+        console.log(dragonborns)
     })
 }
