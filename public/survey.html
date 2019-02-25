@@ -353,34 +353,7 @@
         let q10 = 0;
 
         add.addEventListener("click", function () {
-            let score = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
-            console.log(score);
-            if (score.some(thing => thing === 0)) {
-                
-                let zeros = [];
-                for (var i = 0; i < score.length; i++) {
-                    if (score[i] === 0) {
-                        zeros.push(i+1);
-                    }
-                }
-                alert("please answer question(s) " + zeros.join(", "))
-
-                return;
-            } else if ($("#dragonborn-name").val() === ""){ 
-                alert("please enter name");
-                return;
-            } else {
-                let newDragonborn = {
-                    name: $("#dragonborn-name").val().trim(),
-                    score: score
-                }
-                $.post("/api/dragonborn", newDragonborn, function (data) {
-                    console.log(data)
-                    if (data) {
-                        runDragonborn();
-                    }
-                })
-            }
+            
 
         });
 

@@ -1,5 +1,3 @@
-const followers = require("../app/data/followers");
-const dragonborns = require("../app/data/dragonborns")
 const path = require("path");
 
 module.exports = function(app) {
