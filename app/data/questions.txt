@@ -1,0 +1,70 @@
+1. Which farm product do you like/grow the most?
+    Beer/Wine
+    Fruit
+    Cheese
+    Cloth
+    Whatever is the most valuable
+
+2. What place in town do you like the most?
+    The Mueseum
+    The Saloon
+    Pierre's shop
+    Joja Mart
+    Community Center
+
+3. If you could have any kind of pet, what would it be?
+    Dog
+    Cat
+    Snake
+    Giraffe
+    Pig
+
+4. If you have a day to do anything you want, what do you do?
+    Head to the Beach
+    Explore the countryside
+    Adventure into the mines
+    Take a bus to the Casino
+    Stay home and relax
+
+5. Which festival is your favorite?
+    Flower Dance
+    Spirit's Eve
+    Winter festival
+    Dance of the Moonlight Jellies
+    Stardew Valley Fair
+
+6. What of these gifts would you like the most?
+    A New Book
+    Prismatic Shard
+    A Delicious Meal
+    Wine
+    Flowers
+
+7. What is you favorite hobby?
+    Working on gadgets
+    Practicing Art
+    Self Improvement
+    Physical Activities
+    Keeping busy around the farm
+
+8. Which of these pieces of furniture is most important to you?
+    Musical equipment
+    Electronics
+    Arts and Crafts Area
+    Bookcases
+    Dresser
+
+9. What social group did/do you belong to in school?
+    Jocks
+    Prep
+    Nerd
+    Artsy Crowd
+    Loner
+
+10. Placeholder Question so I can get to Working
+    Blah
+    Blah
+    Blah
+    Blah
+    Blah
+    

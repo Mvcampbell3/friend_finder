@@ -1,18 +1,16 @@
 const path = require("path");
 
 module.exports = function(app) {
-    app.get("/api/followers", (req, res) => {
+    app.get("/api/matches", (req, res) => {
         res.json(followers);
     })
 
-    app.get("/api/dragonborn", (req,res) => {
-        res.json(dragonborns);
-    })
+    
 
-    app.post("/api/dragonborn", (req, res) => {
-        let newDragBorn = req.body;
-        dragonborns.push(newDragBorn)
-        console.log(dragonborns)
+    app.post("/api/matches", (req, res) => {
+        let newMatch = req.body;
+        matches.push(newMatch)
+        console.log(newMatch)
         res.json(true);
     })
 }
