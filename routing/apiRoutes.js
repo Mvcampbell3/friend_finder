@@ -15,5 +15,6 @@ module.exports = function(app) {
         let newDragBorn = req.body;
         dragonborns.push(newDragBorn)
         console.log(dragonborns)
+        res.json(true);
     })
 }

@@ -7,6 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        body, h1, h2, h3, h4, h5, h6, p, ul, li{
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html{
+            height: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+
         .questionGroup {
             text-align: center;
         }
@@ -30,6 +42,7 @@
             height: 25px;
             width: 25px;
             margin-right: 5px;
+            margin-bottom: 5px;
             background-color: grey;
             transition: all, .25s;
         }
@@ -45,261 +58,280 @@
             border-radius: 50%;
             transition: all, .25s;
         }
+
+        .modal{
+            height: 100vh;
+            width: 100vw;
+            background-color:#333;
+            color: white;
+            display: none;
+        }
     </style>
 </head>
 
 <body>
-    <div class="questionGroup">
-        <div class="line"></div>
-        <h3 class="question">What type of weapons/attack do you use most?</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check1" data-change="group1" id="check_1_1" data-points="1"></div>
-                <h4 class="answer">Stealth and Daggers</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check1" data-change="group1" id="check_1_2" data-points="2"></div>
-                <h4 class="answer">Bow or Shield and Sword</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check1" data-change="group1" id="check_1_3" data-points="3"></div>
-                <h4 class="answer">Two Handed Weapons</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check1" data-change="group1" id="check_1_4" data-points="4"></div>
-                <h4 class="answer">One handed weapon with magic</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check1" data-change="group1" id="check_1_5" data-points="5"></div>
-                <h4 class="answer">Dual Magic</h4>
-            </div>
-        </div>
-        <div class="line"></div>
+    <div class="modal">
+        <h2 id="matchName"></h2>
+        <h4 id="matchScore"></h4>
+        <a href="/">Home</a>
     </div>
-    <div class="questionGroup">
-        <h3 class="question">What type of armor do you like to wear?</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check2" data-change="group2" id="check_2_1" data-points="1"></div>
-                <h4 class="answer">Muffled Light Armor</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check2" data-change="group2" id="check_2_2" data-points="2"></div>
-                <h4 class="answer">Stamina Boosting Light Armor</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check2" data-change="group2" id="check_2_3" data-points="3"></div>
-                <h4 class="answer">Damage Resistant Heavy Armor</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check2" data-change="group2" id="check_2_4" data-points="4"></div>
-                <h4 class="answer">Magicka Boosting Light Armor</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check2" data-change="group2" id="check_2_5" data-points="5"></div>
-                <h4 class="answer">Magical Robes</h4>
-            </div>
+    <div class="main">
+        <div class="inputArea">
+            <h3>What is your name?</h3>
+            <input type="text" name="name" id="dragonborn-name">
         </div>
-        <div class="line"></div>
-    </div>
-    <div class="questionGroup">
-        <h3 class="question">Where would be your ideal place to settle down</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check3" data-change="group3" id="check_3_1" data-points="1"></div>
-                <h4 class="answer">Riften</h4>
+        <div class="questionGroup">
+            <div class="line"></div>
+            <h3 class="question">What type of weapons/attack do you use most?</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check1" data-change="group1" id="check_1_1" data-points="1"></div>
+                    <h4 class="answer">Stealth and Daggers</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check1" data-change="group1" id="check_1_2" data-points="2"></div>
+                    <h4 class="answer">Bow or Shield and Sword</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check1" data-change="group1" id="check_1_3" data-points="3"></div>
+                    <h4 class="answer">Two Handed Weapons</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check1" data-change="group1" id="check_1_4" data-points="4"></div>
+                    <h4 class="answer">One handed weapon with magic</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check1" data-change="group1" id="check_1_5" data-points="5"></div>
+                    <h4 class="answer">Dual Magic</h4>
+                </div>
             </div>
-            <div class="answerGroup">
-                <div class="check check3" data-change="group3" id="check_3_2" data-points="2"></div>
-                <h4 class="answer">Whiterun</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check3" data-change="group3" id="check_3_3" data-points="3"></div>
-                <h4 class="answer">Windhelm</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check3" data-change="group3" id="check_3_4" data-points="4"></div>
-                <h4 class="answer">Solitude</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check3" data-change="group3" id="check_3_5" data-points="5"></div>
-                <h4 class="answer">Winterhold</h4>
-            </div>
+            <div class="line"></div>
         </div>
-        <div class="line"></div>
-    </div>
-    <div class="questionGroup">
-        <h3 class="question">Which magic spell would you use the most</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check4" data-change="group4" id="check_4_1" data-points="1"></div>
-                <h4 class="answer">Paralyze</h4>
+        <div class="questionGroup">
+            <h3 class="question">What type of armor do you like to wear?</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check2" data-change="group2" id="check_2_1" data-points="1"></div>
+                    <h4 class="answer">Muffled Light Armor</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check2" data-change="group2" id="check_2_2" data-points="2"></div>
+                    <h4 class="answer">Stamina Boosting Light Armor</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check2" data-change="group2" id="check_2_3" data-points="3"></div>
+                    <h4 class="answer">Damage Resistant Heavy Armor</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check2" data-change="group2" id="check_2_4" data-points="4"></div>
+                    <h4 class="answer">Magicka Boosting Light Armor</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check2" data-change="group2" id="check_2_5" data-points="5"></div>
+                    <h4 class="answer">Magical Robes</h4>
+                </div>
             </div>
-            <div class="answerGroup">
-                <div class="check check4" data-change="group4" id="check_4_2" data-points="2"></div>
-                <h4 class="answer">Invisibility</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check4" data-change="group4" id="check_4_3" data-points="3"></div>
-                <h4 class="answer">Restoration</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check4" data-change="group4" id="check_4_4" data-points="4"></div>
-                <h4 class="answer">Lightning Bolts</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check4" data-change="group4" id="check_4_5" data-points="5"></div>
-                <h4 class="answer">Blizzard/Firestorm</h4>
-            </div>
+            <div class="line"></div>
         </div>
-        <div class="line"></div>
-    </div>
-    <div class="questionGroup">
-        <h3 class="question">Which guild would you align yourself most?</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check5" data-change="group5" id="check_5_1" data-points="1"></div>
-                <h4 class="answer">Dark Brotherhood</h4>
+        <div class="questionGroup">
+            <h3 class="question">Where would be your ideal place to settle down</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check3" data-change="group3" id="check_3_1" data-points="1"></div>
+                    <h4 class="answer">Riften</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check3" data-change="group3" id="check_3_2" data-points="2"></div>
+                    <h4 class="answer">Whiterun</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check3" data-change="group3" id="check_3_3" data-points="3"></div>
+                    <h4 class="answer">Windhelm</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check3" data-change="group3" id="check_3_4" data-points="4"></div>
+                    <h4 class="answer">Solitude</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check3" data-change="group3" id="check_3_5" data-points="5"></div>
+                    <h4 class="answer">Winterhold</h4>
+                </div>
             </div>
-            <div class="answerGroup">
-                <div class="check check5" data-change="group5" id="check_5_2" data-points="2"></div>
-                <h4 class="answer">Thieves' Guild</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check5" data-change="group5" id="check_5_3" data-points="3"></div>
-                <h4 class="answer">Companions</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check5" data-change="group5" id="check_5_4" data-points="4"></div>
-                <h4 class="answer">College of Winterhold</h4>
-            </div>
+            <div class="line"></div>
         </div>
-        <div class="line"></div>
-    </div>
-    <div class="questionGroup">
-        <h3 class="question">Which race would you more likely choose to play?</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check6" data-change="group6" id="check_6_1" data-points="1"></div>
-                <h4 class="answer">Khajit</h4>
+        <div class="questionGroup">
+            <h3 class="question">Which magic spell would you use the most</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check4" data-change="group4" id="check_4_1" data-points="1"></div>
+                    <h4 class="answer">Paralyze</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check4" data-change="group4" id="check_4_2" data-points="2"></div>
+                    <h4 class="answer">Invisibility</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check4" data-change="group4" id="check_4_3" data-points="3"></div>
+                    <h4 class="answer">Restoration</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check4" data-change="group4" id="check_4_4" data-points="4"></div>
+                    <h4 class="answer">Lightning Bolts</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check4" data-change="group4" id="check_4_5" data-points="5"></div>
+                    <h4 class="answer">Blizzard/Firestorm</h4>
+                </div>
             </div>
-            <div class="answerGroup">
-                <div class="check check6" data-change="group6" id="check_6_2" data-points="2"></div>
-                <h4 class="answer">Nord</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check6" data-change="group6" id="check_6_3" data-points="3"></div>
-                <h4 class="answer">Orsimer(Orcs)</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check6" data-change="group6" id="check_6_4" data-points="4"></div>
-                <h4 class="answer">Breton</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check6" data-change="group6" id="check_6_5" data-points="5"></div>
-                <h4 class="answer">Altmer(High Elf)</h4>
-            </div>
+            <div class="line"></div>
         </div>
-        <div class="line"></div>
-    </div>
-    <div class="questionGroup">
-        <h3 class="question">Which shout would you use most?</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check7" data-change="group7" id="check_7_1" data-points="1"></div>
-                <h4 class="answer">Aura Whisper</h4>
+        <div class="questionGroup">
+            <h3 class="question">Which guild would you align yourself most?</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check5" data-change="group5" id="check_5_1" data-points="1"></div>
+                    <h4 class="answer">Dark Brotherhood</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check5" data-change="group5" id="check_5_2" data-points="2"></div>
+                    <h4 class="answer">Thieves' Guild</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check5" data-change="group5" id="check_5_3" data-points="3"></div>
+                    <h4 class="answer">Companions</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check5" data-change="group5" id="check_5_4" data-points="4"></div>
+                    <h4 class="answer">College of Winterhold</h4>
+                </div>
             </div>
-            <div class="answerGroup">
-                <div class="check check7" data-change="group7" id="check_7_2" data-points="2"></div>
-                <h4 class="answer">Slow Time</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check7" data-change="group7" id="check_7_3" data-points="3"></div>
-                <h4 class="answer">Shout? I am not interested in shouts.</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check7" data-change="group7" id="check_7_4" data-points="4"></div>
-                <h4 class="answer">Unrelenting Force</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check7" data-change="group7" id="check_7_5" data-points="5"></div>
-                <h4 class="answer">Fire Breath</h4>
-            </div>
+            <div class="line"></div>
         </div>
-        <div class="line"></div>
-    </div>
-    <div class="questionGroup">
-        <h3 class="question">Which skill do you work on improving the most?</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check8" data-change="group8" id="check_8_1" data-points="1"></div>
-                <h4 class="answer">Stealth</h4>
+        <div class="questionGroup">
+            <h3 class="question">Which race would you more likely choose to play?</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check6" data-change="group6" id="check_6_1" data-points="1"></div>
+                    <h4 class="answer">Khajit</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check6" data-change="group6" id="check_6_2" data-points="2"></div>
+                    <h4 class="answer">Nord</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check6" data-change="group6" id="check_6_3" data-points="3"></div>
+                    <h4 class="answer">Orsimer(Orcs)</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check6" data-change="group6" id="check_6_4" data-points="4"></div>
+                    <h4 class="answer">Breton</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check6" data-change="group6" id="check_6_5" data-points="5"></div>
+                    <h4 class="answer">Altmer(High Elf)</h4>
+                </div>
             </div>
-            <div class="answerGroup">
-                <div class="check check8" data-change="group8" id="check_8_2" data-points="2"></div>
-                <h4 class="answer">Archery</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check8" data-change="group8" id="check_8_3" data-points="3"></div>
-                <h4 class="answer">One Handed or Two Handed Skills</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check8" data-change="group8" id="check_8_4" data-points="4"></div>
-                <h4 class="answer">Smithing</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check8" data-change="group8" id="check_8_5" data-points="5"></div>
-                <h4 class="answer">Destruction</h4>
-            </div>
+            <div class="line"></div>
         </div>
-        <div class="line"></div>
-    </div>
-    <div class="questionGroup">
-        <h3 class="question">When you have some down time between quests, how do you spend it?</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check9" data-change="group9" id="check_9-1" data-points="1"></div>
-                <h4 class="answer">Grinding to level up my character</h4>
+        <div class="questionGroup">
+            <h3 class="question">Which shout would you use most?</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check7" data-change="group7" id="check_7_1" data-points="1"></div>
+                    <h4 class="answer">Aura Whisper</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check7" data-change="group7" id="check_7_2" data-points="2"></div>
+                    <h4 class="answer">Slow Time</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check7" data-change="group7" id="check_7_3" data-points="3"></div>
+                    <h4 class="answer">Shout? I am not interested in shouts.</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check7" data-change="group7" id="check_7_4" data-points="4"></div>
+                    <h4 class="answer">Unrelenting Force</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check7" data-change="group7" id="check_7_5" data-points="5"></div>
+                    <h4 class="answer">Fire Breath</h4>
+                </div>
             </div>
-            <div class="answerGroup">
-                <div class="check check9" data-change="group9" id="check_9-2" data-points="2"></div>
-                <h4 class="answer">Hunting Dragons</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check9" data-change="group9" id="check_9-3" data-points="3"></div>
-                <h4 class="answer">Clearing out Dungeons</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check9" data-change="group9" id="check_9-4" data-points="4"></div>
-                <h4 class="answer">Running unimportant errands</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check9" data-change="group9" id="check_9-5" data-points="5"></div>
-                <h4 class="answer">More Quests</h4>
-            </div>
+            <div class="line"></div>
         </div>
-        <div class="line"></div>
-    </div>
-    <div class="questionGroup">
-        <h3 class="question">Whose side do you take in the Civil War?</h3>
-        <div class="answers">
-            <div class="answerGroup">
-                <div class="check check10" data-change="group10" id="check_10-1" data-points="1"></div>
-                <h4 class="answer">Skyrim is for true Nords</h4>
+        <div class="questionGroup">
+            <h3 class="question">Which skill do you work on improving the most?</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check8" data-change="group8" id="check_8_1" data-points="1"></div>
+                    <h4 class="answer">Stealth</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check8" data-change="group8" id="check_8_2" data-points="2"></div>
+                    <h4 class="answer">Archery</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check8" data-change="group8" id="check_8_3" data-points="3"></div>
+                    <h4 class="answer">One Handed or Two Handed Skills</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check8" data-change="group8" id="check_8_4" data-points="4"></div>
+                    <h4 class="answer">Smithing</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check8" data-change="group8" id="check_8_5" data-points="5"></div>
+                    <h4 class="answer">Destruction</h4>
+                </div>
             </div>
-            <div class="answerGroup">
-                <div class="check check10" data-change="group10" id="check_10-2" data-points="5"></div>
-                <h4 class="answer">Let them sort it out themselves</h4>
-            </div>
-            <div class="answerGroup">
-                <div class="check check10" data-change="group10" id="check_10-3" data-points="10"></div>
-                <h4 class="answer">The Empire must stand</h4>
-            </div>
+            <div class="line"></div>
         </div>
-        <div class="line"></div>
+        <div class="questionGroup">
+            <h3 class="question">When you have some down time between quests, how do you spend it?</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check9" data-change="group9" id="check_9-1" data-points="1"></div>
+                    <h4 class="answer">Grinding to level up my character</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check9" data-change="group9" id="check_9-2" data-points="2"></div>
+                    <h4 class="answer">Hunting Dragons</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check9" data-change="group9" id="check_9-3" data-points="3"></div>
+                    <h4 class="answer">Clearing out Dungeons</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check9" data-change="group9" id="check_9-4" data-points="4"></div>
+                    <h4 class="answer">Running unimportant errands</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check9" data-change="group9" id="check_9-5" data-points="5"></div>
+                    <h4 class="answer">More Quests</h4>
+                </div>
+            </div>
+            <div class="line"></div>
+        </div>
+        <div class="questionGroup">
+            <h3 class="question">Whose side do you take in the Civil War?</h3>
+            <div class="answers">
+                <div class="answerGroup">
+                    <div class="check check10" data-change="group10" id="check_10-1" data-points="1"></div>
+                    <h4 class="answer">Skyrim is for true Nords</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check10" data-change="group10" id="check_10-2" data-points="2"></div>
+                    <h4 class="answer">Let them sort it out themselves</h4>
+                </div>
+                <div class="answerGroup">
+                    <div class="check check10" data-change="group10" id="check_10-3" data-points="3"></div>
+                    <h4 class="answer">The Empire must stand</h4>
+                </div>
+            </div>
+            <div class="line"></div>
+        </div>
+        <button id="add">Add</button>
+        <a href="/">Home</a>
     </div>
-    <button id="add">Add</button>
-    <a href="/">Home</a>
 
     <!-- ----------------------------------------- -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -323,15 +355,35 @@
         add.addEventListener("click", function () {
             let score = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
             console.log(score);
-            let newDragonborn = {
-                name: "michael",
-                score: score
+            if (score.some(thing => thing === 0)) {
+                
+                let zeros = [];
+                for (var i = 0; i < score.length; i++) {
+                    if (score[i] === 0) {
+                        zeros.push(i+1);
+                    }
+                }
+                alert("please answer question(s) " + zeros.join(", "))
+
+                return;
+            } else if ($("#dragonborn-name").val() === ""){ 
+                alert("please enter name");
+                return;
+            } else {
+                let newDragonborn = {
+                    name: $("#dragonborn-name").val().trim(),
+                    score: score
+                }
+                $.post("/api/dragonborn", newDragonborn, function (data) {
+                    console.log(data)
+                    if (data) {
+                        runDragonborn();
+                    }
+                })
             }
-            $.post("/api/dragonborn", newDragonborn, function(){
-                alert("this works");
-            })
+
         });
-        
+
 
         check.forEach(one => {
 
@@ -382,7 +434,55 @@
 
                 }
             })
+        });
+
+        function runDragonborn() {
+            $.get("/api/dragonborn", (data) => {
+            console.log(data);
+            console.log(data.length)
+            checkScore(data)
         })
+        }
+        
+
+        function checkScore(data) {
+            
+
+            $.get("/api/followers", (all) => {
+                let user = data[data.length - 1];
+                console.log(user)
+                
+                let closest = all[0];
+                let value = 40;
+                all.forEach(one => {
+                    let newDiff = [];
+                    let oldDiff = [];
+                    let newArray = one.score;
+                    for (let i = 0; i < newArray.length; i++) {
+                        newDiff.push(Math.abs(parseInt(user.score[i]) - newArray[i]));
+                        oldDiff.push(Math.abs(parseInt(user.score[i]) - closest.score[i]));
+                    }
+                    console.log(one.name + " had a difference of " + newDiff.reduce((amt, tot) => amt + tot))
+
+                    if (newDiff.reduce((amt, tot) => amt + tot) < oldDiff.reduce((amt, tot) => amt + tot)){
+                        closest = one;
+                        value = newDiff.reduce((amt, tot) => amt + tot)
+                    } else {
+                        value = oldDiff.reduce((amt, tot) => amt + tot)
+                    }
+                })
+                console.log(closest);
+                console.log(value)
+                modal(closest, value)
+            })
+        }
+
+        function modal(closest, value) {
+            $("#matchName").text(closest.name);
+            $("#matchScore").text(value)
+            $(".modal").show();
+            $(".main").hide();
+        }
 
 
 
