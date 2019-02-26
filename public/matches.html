@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body, h1, h2, h3, h4, h5, h6, p, ul, li{
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        background-image: url("https://steamcdn-a.akamaihd.net/steam/apps/413150/ss_a3ddf22cda3bd722df77dbdd58dbec393906b654.1920x1080.jpg?t=1544807843");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+
+    }
+
+    .outputArea{
+        width: 60%;
+        min-width: 300px;
+        margin: auto;
+    }
+    .person{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-width: 300px;
+        background-color: rgb(75, 39, 5);
+        color: burlywood;
+        border: 5px burlywood solid;
+        box-sizing: border-box;
+        margin-bottom: 1em;
+        padding: 15px;
+        outline: 3px black solid;
+    }
+    
+    .pic{
+        width: 200px;
+        height: auto;
+    }
+    
+    @media (max-width: 600px) {
+        .person{
+            flex-direction: column;
+        }
+    }
+
+    .homeBtn{
+        display: block;
+        padding: 10px 15px;
+        background-color: rgb(117, 5, 61);
+        color: burlywood;
+        text-decoration: none;
+        font-size: 20px;
+        border: 3px solid burlywood;
+        box-sizing: border-box;
+        width: fit-content;
+        margin: 1em auto;
+        outline: 3px black solid;
+    }
+
+    .person h2{
+        margin-bottom: 15px;
+    }
+    
+    
+    </style>
+</head>
+
+<body>
+    <a class="homeBtn" href="/">Home</a>
+    <div class="outputArea"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $.get("./api/matches", (data) => {
+            console.log(data);
+            let matches = data.matches;
+            matches.forEach(one => {
+                let div = $("<div>").attr("class", "person");
+                let name = $("<h2>").text("Name: " + one.name);
+                let img = $("<img>").attr("src", one.image).attr("class", "pic");
+                let gender = $("<h3>").text("Gender:" + one.gender);
+                let words = $("<div>").attr("class", "words");
+                words.append(name, gender);
+                div.append(words, img);
+                $(".outputArea").append(div);
+            })
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
