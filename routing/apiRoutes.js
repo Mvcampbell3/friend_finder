@@ -1,4 +1,3 @@
-const path = require("path");
 const group = require("../app/data/matches")
 module.exports = function(app) {
     app.get("/api/matches", (req, res) => {
