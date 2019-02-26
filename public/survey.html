@@ -5,17 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade|ZCOOL+QingKe+Huang"
+        rel="stylesheet">
+    <title>Survey</title>
     <style>
-        body, h1, h2, h3, h4, h5, h6, p, ul, li{
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ul,
+        li {
             margin: 0;
             padding: 0;
         }
 
-        body, html{
+        body,
+        html {
             height: 100%;
             max-width: 100%;
             overflow-x: hidden;
+        }
+
+        body{
+            background: url("https://cdn3.vectorstock.com/i/1000x1000/66/42/cartoon-of-farm-background-vector-8546642.jpg");
+            background-size: cover;
+            background-attachment: fixed;
         }
 
 
@@ -24,8 +42,8 @@
         }
 
         .line {
-            width: 600px;
-            margin: auto;
+            width: 95%;
+            margin: 1em auto;
             height: 5px;
             background-color: black;
         }
@@ -41,6 +59,7 @@
         .check {
             height: 25px;
             width: 25px;
+            border-radius: 15%;
             margin-right: 5px;
             margin-bottom: 5px;
             background-color: grey;
@@ -50,21 +69,103 @@
         .answerGroup {
             display: flex;
             align-items: center;
-
+            margin-top: 5px;
         }
 
         .red {
             background-color: deepskyblue;
             border-radius: 50%;
+            transform: rotateZ(45deg);
             transition: all, .25s;
         }
 
-        .modal{
+        .modal {
             height: 100vh;
             width: 100vw;
-            background-color:#333;
+            background-color: #333;
             color: white;
             display: none;
+        }
+
+        .sign {
+            width: 70%;
+            margin: 1em auto 2em auto;
+            background-color: rgb(75, 39, 5);
+            padding: 30px 0;
+            box-sizing: border-box;
+            border: 9px burlywood solid;
+        }
+
+        .sign h2 {
+            font-family: "Bungee Inline", cursive;
+            text-align: center;
+            color: burlywood;
+            font-size: 4vw;
+        }
+
+        .survey {
+            display: none;
+            background-color: rgba(75, 39, 5, .95);
+            font-family: 'ZCOOL QingKe HuangYou', cursive;
+            color:burlywood;
+            box-sizing: border-box;
+            padding: 15px;
+            width: 60%;
+            min-width: 300px;
+            margin: 0 auto 3em auto;
+            border: 5px burlywood solid;
+        }
+
+        .inputArea {
+            width: 50%;
+            background-color: rgba(75, 39, 5, .95);
+            font-family: 'ZCOOL QingKe HuangYou', cursive;
+            color:burlywood;
+            box-sizing: border-box;
+            min-width: 300px;
+            margin: auto;
+            border: 3px black solid;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 5px burlywood solid;
+
+        }
+
+        .answersInput {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .inputArea input[type=text] {
+            font-size: 20px;
+            margin-bottom: 15px;
+            width: 90%;
+        }
+
+        .inputArea h3 {
+            margin-bottom: 15px;
+        }
+
+        .saveBtn {
+            padding: 5px 10px;
+            border: 1px burlywood solid;
+            box-sizing: border-box;
+            width: fit-content;
+            margin: 1em auto .5em auto;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: rgb(117, 5, 61);
+            color: burlywood;
+        }
+
+        .saveBtn:active {
+            transform: scale(.9)
+        }
+
+        .question{
+            text-align: left;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -73,294 +174,319 @@
     <div class="modal">
         <h2 id="matchName"></h2>
         <h4 id="matchScore"></h4>
+        <img id="matchImg" src="" alt="matchphoto">
         <a href="/">Home</a>
     </div>
     <div class="main">
+
+        <div class="sign">
+            <h2>Stardew Match Survey</h2>
+        </div>
         <div class="inputArea">
             <h3>What is your name?</h3>
-        <input type="text" name="name" id="user-name">
-        </div>
-        <div class="questionGroup">
-            <div class="line"></div>
-            <h3 class="question">1. Which farm product do you like/grow the most?</h3>
-            <div class="answers">
+            <input type="text" name="name" id="user-name">
+            <h3>What URL would you like to be your picture?</h3>
+            <input type="text" name="image" id="user-image">
+            <h3>What is your gender?</h3>
+            <div class="answersInput">
                 <div class="answerGroup">
-                    <div class="check check1" data-change="group1" id="check_1_1" data-points="1"></div>
-                    <h4 class="answer">Beer/Wine</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check1" data-change="group1" id="check_1_2" data-points="2"></div>
-                    <h4 class="answer">Fruit</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check1" data-change="group1" id="check_1_3" data-points="3"></div>
-                    <h4 class="answer">Cheese</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check1" data-change="group1" id="check_1_4" data-points="4"></div>
-                    <h4 class="answer">Cloth</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check1" data-change="group1" id="check_1_5" data-points="5"></div>
-                    <h4 class="answer">Whatever is the most valuable</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup">
-            <h3 class="question">2. What place in town do you like the most?</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check2" data-change="group2" id="check_2_1" data-points="1"></div>
-                    <h4 class="answer">The Mueseum</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check2" data-change="group2" id="check_2_2" data-points="2"></div>
-                    <h4 class="answer">The Saloon</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check2" data-change="group2" id="check_2_3" data-points="3"></div>
-                    <h4 class="answer">Pierre's shop</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check2" data-change="group2" id="check_2_4" data-points="4"></div>
-                    <h4 class="answer">Joja Mart</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check2" data-change="group2" id="check_2_5" data-points="5"></div>
-                    <h4 class="answer">Community Center</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup">
-            <h3 class="question">3. If you could have any kind of pet, what would it be?</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check3" data-change="group3" id="check_3_1" data-points="1"></div>
-                    <h4 class="answer">Dog</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check3" data-change="group3" id="check_3_2" data-points="2"></div>
-                    <h4 class="answer">Cat</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check3" data-change="group3" id="check_3_3" data-points="3"></div>
-                    <h4 class="answer">Snake</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check3" data-change="group3" id="check_3_4" data-points="4"></div>
-                    <h4 class="answer">Giraffe</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check3" data-change="group3" id="check_3_5" data-points="5"></div>
-                    <h4 class="answer">Rabbit</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup">
-            <h3 class="question">4. If you have a day to do anything you want, what do you do?</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check4" data-change="group4" id="check_4_1" data-points="1"></div>
-                    <h4 class="answer">Head to the Beach</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check4" data-change="group4" id="check_4_2" data-points="2"></div>
-                    <h4 class="answer">Explore the countryside</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check4" data-change="group4" id="check_4_3" data-points="3"></div>
-                    <h4 class="answer">Adventure into the mines</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check4" data-change="group4" id="check_4_4" data-points="4"></div>
-                    <h4 class="answer">Take a bus to the Casino</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check4" data-change="group4" id="check_4_5" data-points="5"></div>
-                    <h4 class="answer">Stay home and relax</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup">
-            <h3 class="question">5. Which festival is your favorite?</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check5" data-change="group5" id="check_5_1" data-points="1"></div>
-                    <h4 class="answer">Flower Dance</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check5" data-change="group5" id="check_5_2" data-points="2"></div>
-                    <h4 class="answer">Spirit's Eve</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check5" data-change="group5" id="check_5_3" data-points="3"></div>
-                    <h4 class="answer">Winter festival</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check5" data-change="group5" id="check_5_4" data-points="4"></div>
-                    <h4 class="answer">Dance of the Moonlight Jellies</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check5" data-change="group5" id="check_5_5" data-points="5"></div>
-                    <h4 class="answer">Stardew Valley Fair</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup">
-            <h3 class="question">6. What of these gifts would you like the most?</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check6" data-change="group6" id="check_6_1" data-points="1"></div>
-                    <h4 class="answer">A New Book</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check6" data-change="group6" id="check_6_2" data-points="2"></div>
-                    <h4 class="answer">Prismatic Shard</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check6" data-change="group6" id="check_6_3" data-points="3"></div>
-                    <h4 class="answer">A Delicious Meal</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check6" data-change="group6" id="check_6_4" data-points="4"></div>
-                    <h4 class="answer">Wine</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check6" data-change="group6" id="check_6_5" data-points="5"></div>
-                    <h4 class="answer">Flowers</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup">
-            <h3 class="question">7. What is you favorite hobby?</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check7" data-change="group7" id="check_7_1" data-points="1"></div>
-                    <h4 class="answer">Working on gadgets</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check7" data-change="group7" id="check_7_2" data-points="2"></div>
-                    <h4 class="answer">Practicing Art</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check7" data-change="group7" id="check_7_3" data-points="3"></div>
-                    <h4 class="answer">Self Improvement</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check7" data-change="group7" id="check_7_4" data-points="4"></div>
-                    <h4 class="answer">Physical Activities</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check7" data-change="group7" id="check_7_5" data-points="5"></div>
-                    <h4 class="answer">Keeping busy around the farm</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup">
-            <h3 class="question">8. Which of these pieces of furniture is most important to you?</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check8" data-change="group8" id="check_8_1" data-points="1"></div>
-                    <h4 class="answer">Musical equipment</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check8" data-change="group8" id="check_8_2" data-points="2"></div>
-                    <h4 class="answer">Electronics</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check8" data-change="group8" id="check_8_3" data-points="3"></div>
-                    <h4 class="answer"> Arts and Crafts Area</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check8" data-change="group8" id="check_8_4" data-points="4"></div>
-                    <h4 class="answer">Bookcases</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check8" data-change="group8" id="check_8_5" data-points="5"></div>
-                    <h4 class="answer">Dresser</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup">
-            <h3 class="question">9. What social group did/do you belong to in school?</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check9" data-change="group9" id="check_9-1" data-points="1"></div>
-                    <h4 class="answer">Jocks</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check9" data-change="group9" id="check_9-2" data-points="2"></div>
-                    <h4 class="answer">Prep</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check9" data-change="group9" id="check_9-3" data-points="3"></div>
-                    <h4 class="answer">Nerd</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check9" data-change="group9" id="check_9-4" data-points="4"></div>
-                    <h4 class="answer">Artsy Crowd</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check9" data-change="group9" id="check_9-5" data-points="5"></div>
-                    <h4 class="answer">Loner</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup">
-            <h3 class="question">10. Placeholder Question so I can get to Working</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check10" data-change="group10" id="check_10-1" data-points="1"></div>
-                    <h4 class="answer">Blah</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check10" data-change="group10" id="check_10-2" data-points="2"></div>
-                    <h4 class="answer">Blah</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check10" data-change="group10" id="check_10-3" data-points="3"></div>
-                    <h4 class="answer">Blah</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check10" data-change="group10" id="check_10-4" data-points="4"></div>
-                    <h4 class="answer">Blah</h4>
-                </div>
-                <div class="answerGroup">
-                    <div class="check check10" data-change="group10" id="check_10-5" data-points="5"></div>
-                    <h4 class="answer">Blah</h4>
-                </div>
-            </div>
-            <div class="line"></div>
-        </div>
-        <div class="questionGroup" >
-            <h3 class="question">11. Which gender would you want your spouse to be?</h3>
-            <div class="answers">
-                <div class="answerGroup">
-                    <div class="check check10" data-change="group11" id="check_10-1" data-points="1"></div>
+                    <div class="check check1" data-change="gender" id="gender1" data-gender="Male"></div>
                     <h4 class="answer">Male</h4>
                 </div>
                 <div class="answerGroup">
-                    <div class="check check10" data-change="group11" id="check_10-2" data-points="2"></div>
+                    <div class="check check1" data-change="gender" id="gender2" data-gender="Female"></div>
                     <h4 class="answer">Female</h4>
                 </div>
                 <div class="answerGroup">
-                    <div class="check check10" data-change="group11" id="check_10-3" data-points="3"></div>
-                    <h4 class="answer">Doesn't matter</h4>
+                    <div class="check check1" data-change="gender" id="gender3" data-gender="Neither"></div>
+                    <h4 class="answer">Neither</h4>
                 </div>
             </div>
-            <div class="line"></div>
+            <div class="saveBtn" id="saveBtn">Save</div>
+
         </div>
-        <button id="add">Add</button>
-        <a href="/">Home</a>
+        <div class="survey">
+            <div class="questionGroup">
+                <h3 class="question">1. Which farm product do you like/grow the most?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check1" data-change="group1" id="check_1_1" data-points="1"></div>
+                        <h4 class="answer">Beer/Wine</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check1" data-change="group1" id="check_1_2" data-points="2"></div>
+                        <h4 class="answer">Fruit</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check1" data-change="group1" id="check_1_3" data-points="3"></div>
+                        <h4 class="answer">Cheese</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check1" data-change="group1" id="check_1_4" data-points="4"></div>
+                        <h4 class="answer">Cloth</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check1" data-change="group1" id="check_1_5" data-points="5"></div>
+                        <h4 class="answer">Whatever is the most valuable</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">2. What place in town do you like the most?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check2" data-change="group2" id="check_2_1" data-points="1"></div>
+                        <h4 class="answer">The Museum</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check2" data-change="group2" id="check_2_2" data-points="2"></div>
+                        <h4 class="answer">The Saloon</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check2" data-change="group2" id="check_2_3" data-points="3"></div>
+                        <h4 class="answer">Pierre's shop</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check2" data-change="group2" id="check_2_4" data-points="4"></div>
+                        <h4 class="answer">Joja Mart</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check2" data-change="group2" id="check_2_5" data-points="5"></div>
+                        <h4 class="answer">Community Center</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">3. If you could have any kind of pet, what would it be?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check3" data-change="group3" id="check_3_1" data-points="1"></div>
+                        <h4 class="answer">Dog</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check3" data-change="group3" id="check_3_2" data-points="2"></div>
+                        <h4 class="answer">Cat</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check3" data-change="group3" id="check_3_3" data-points="3"></div>
+                        <h4 class="answer">Snake</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check3" data-change="group3" id="check_3_4" data-points="4"></div>
+                        <h4 class="answer">Giraffe</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check3" data-change="group3" id="check_3_5" data-points="5"></div>
+                        <h4 class="answer">Rabbit</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">4. If you have a day to do anything you want, what do you do?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check4" data-change="group4" id="check_4_1" data-points="1"></div>
+                        <h4 class="answer">Head to the Beach</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check4" data-change="group4" id="check_4_2" data-points="2"></div>
+                        <h4 class="answer">Explore the countryside</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check4" data-change="group4" id="check_4_3" data-points="3"></div>
+                        <h4 class="answer">Adventure into the mines</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check4" data-change="group4" id="check_4_4" data-points="4"></div>
+                        <h4 class="answer">Take a bus to the Casino</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check4" data-change="group4" id="check_4_5" data-points="5"></div>
+                        <h4 class="answer">Stay home and relax</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">5. Which festival is your favorite?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check5" data-change="group5" id="check_5_1" data-points="1"></div>
+                        <h4 class="answer">Flower Dance</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check5" data-change="group5" id="check_5_2" data-points="2"></div>
+                        <h4 class="answer">Spirit's Eve</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check5" data-change="group5" id="check_5_3" data-points="3"></div>
+                        <h4 class="answer">Winter festival</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check5" data-change="group5" id="check_5_4" data-points="4"></div>
+                        <h4 class="answer">Dance of the Moonlight Jellies</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check5" data-change="group5" id="check_5_5" data-points="5"></div>
+                        <h4 class="answer">Stardew Valley Fair</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">6. What of these gifts would you like the most?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check6" data-change="group6" id="check_6_1" data-points="1"></div>
+                        <h4 class="answer">A New Book</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check6" data-change="group6" id="check_6_2" data-points="2"></div>
+                        <h4 class="answer">Prismatic Shard</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check6" data-change="group6" id="check_6_3" data-points="3"></div>
+                        <h4 class="answer">A Delicious Meal</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check6" data-change="group6" id="check_6_4" data-points="4"></div>
+                        <h4 class="answer">Wine</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check6" data-change="group6" id="check_6_5" data-points="5"></div>
+                        <h4 class="answer">Flowers</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">7. What is you favorite hobby?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check7" data-change="group7" id="check_7_1" data-points="1"></div>
+                        <h4 class="answer">Working on gadgets</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check7" data-change="group7" id="check_7_2" data-points="2"></div>
+                        <h4 class="answer">Practicing Art</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check7" data-change="group7" id="check_7_3" data-points="3"></div>
+                        <h4 class="answer">Self Improvement</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check7" data-change="group7" id="check_7_4" data-points="4"></div>
+                        <h4 class="answer">Physical Activities</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check7" data-change="group7" id="check_7_5" data-points="5"></div>
+                        <h4 class="answer">Keeping busy around the farm</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">8. Which of these pieces of furniture is most important to you?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check8" data-change="group8" id="check_8_1" data-points="1"></div>
+                        <h4 class="answer">Musical equipment</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check8" data-change="group8" id="check_8_2" data-points="2"></div>
+                        <h4 class="answer">Electronics</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check8" data-change="group8" id="check_8_3" data-points="3"></div>
+                        <h4 class="answer"> Arts and Crafts Area</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check8" data-change="group8" id="check_8_4" data-points="4"></div>
+                        <h4 class="answer">Bookcases</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check8" data-change="group8" id="check_8_5" data-points="5"></div>
+                        <h4 class="answer">Dresser</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">9. What social group did/do you belong to in school?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check9" data-change="group9" id="check_9-1" data-points="1"></div>
+                        <h4 class="answer">Jocks</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check9" data-change="group9" id="check_9-2" data-points="2"></div>
+                        <h4 class="answer">Prep</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check9" data-change="group9" id="check_9-3" data-points="3"></div>
+                        <h4 class="answer">Nerd</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check9" data-change="group9" id="check_9-4" data-points="4"></div>
+                        <h4 class="answer">Artsy Crowd</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check9" data-change="group9" id="check_9-5" data-points="5"></div>
+                        <h4 class="answer">Loner</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">10. Placeholder Question so I can get to Working</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check10" data-change="group10" id="check_10-1" data-points="1"></div>
+                        <h4 class="answer">Blah</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check10" data-change="group10" id="check_10-2" data-points="2"></div>
+                        <h4 class="answer">Blah</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check10" data-change="group10" id="check_10-3" data-points="3"></div>
+                        <h4 class="answer">Blah</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check10" data-change="group10" id="check_10-4" data-points="4"></div>
+                        <h4 class="answer">Blah</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check10" data-change="group10" id="check_10-5" data-points="5"></div>
+                        <h4 class="answer">Blah</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="questionGroup">
+                <h3 class="question">11. Which gender would you want your spouse to be?</h3>
+                <div class="answers">
+                    <div class="answerGroup">
+                        <div class="check check11" data-change="group11" id="check_11-1" data-points="1"></div>
+                        <h4 class="answer">Male</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check11" data-change="group11" id="check_11-2" data-points="2"></div>
+                        <h4 class="answer">Female</h4>
+                    </div>
+                    <div class="answerGroup">
+                        <div class="check check11" data-change="group11" id="check_11-3" data-points="3"></div>
+                        <h4 class="answer">Doesn't matter</h4>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+        <div class="saveBtn" id="add">Add</div>
+
+        </div>
     </div>
 
     <!-- ----------------------------------------- -->
@@ -370,6 +496,16 @@
     <script>
         const check = [].slice.call(document.querySelectorAll(".check"));
         const add = document.getElementById("add");
+
+        $("#saveBtn").on("click", function () {
+            if ($("#user-name").val() !== "" && $("#user-image").val() !== "" && gender !== "") {
+                $(".inputArea").slideUp();
+                $(".survey").fadeIn();
+            } else {
+                alert("Must enter all fields in form");
+            }
+
+        })
 
         let q1 = 0;
         let q2 = 0;
@@ -381,11 +517,36 @@
         let q8 = 0;
         let q9 = 0;
         let q10 = 0;
+        let q11 = 0;
+        let gender = "";
+        // Need to add which group to select from after q11 is answered
 
         add.addEventListener("click", function () {
-            
+            let stop = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11];
 
+            if (stop.some(empty => empty === 0)) {
+                alert("must fill in the questions")
+            } else {
+                checkScore();
+            }
         });
+
+        function postUser() {
+            let score = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+            let currentGen = gender;
+            let newUser = {
+                name: $("#user-name").val().trim(),
+                gender: currentGen,
+                image: $("#user-image").val().trim(),
+                score: score,
+            };
+            $.post("/api/matches", newUser, function (data) {
+                console.log(data);
+                if (data) {
+                    console.log("added successfully")
+                }
+            })
+        }
 
 
         check.forEach(one => {
@@ -432,6 +593,9 @@
                     case "group11":
                         q11 = this.dataset.points;
                         break;
+                    case "gender":
+                        gender = this.dataset.gender;
+                        break;
                     default:
                         console.log("This is not working");
 
@@ -439,53 +603,63 @@
             })
         });
 
-        function runDragonborn() {
-            $.get("/api/dragonborn", (data) => {
-            console.log(data);
-            console.log(data.length)
-            checkScore(data)
-        })
-        }
-        
+        function checkScore() {
+            $.get("/api/matches", (data) => {
+                let matchGroup = [];
+                switch (q11) {
 
-        function checkScore(data) {
-            
+                    case "1":
+                        data.male.forEach(one => matchGroup.push(one));
+                        break;
+                    case "2":
+                        data.female.forEach(one => matchGroup.push(one));
+                        break;
+                    case "3":
+                        data.matches.forEach(one => matchGroup.push(one));
+                        break;
+                    default:
+                        console.log("checkscore switch not working")
+                }
 
-            $.get("/api/followers", (all) => {
-                let user = data[data.length - 1];
-                console.log(user)
-                
-                let closest = all[0];
+                console.log(matchGroup);
+                let userScore = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10].map(every => parseInt(every));
+                console.log(userScore);
+
+                let last = matchGroup[0];
                 let value = 40;
-                all.forEach(one => {
+
+                matchGroup.forEach(one => {
                     let newDiff = [];
                     let oldDiff = [];
-                    let newArray = one.score;
+                    let newArray = one.score.map(every => parseInt(every));
                     for (let i = 0; i < newArray.length; i++) {
-                        newDiff.push(Math.abs(parseInt(user.score[i]) - newArray[i]));
-                        oldDiff.push(Math.abs(parseInt(user.score[i]) - closest.score[i]));
+                        newDiff.push(Math.abs(parseInt(userScore[i]) - newArray[i]));
+                        oldDiff.push(Math.abs(parseInt(userScore[i]) - last.score[i]));
                     }
                     console.log(one.name + " had a difference of " + newDiff.reduce((amt, tot) => amt + tot))
 
-                    if (newDiff.reduce((amt, tot) => amt + tot) < oldDiff.reduce((amt, tot) => amt + tot)){
-                        closest = one;
+                    if (newDiff.reduce((amt, tot) => amt + tot) < oldDiff.reduce((amt, tot) => amt + tot)) {
+                        last = one;
                         value = newDiff.reduce((amt, tot) => amt + tot)
                     } else {
                         value = oldDiff.reduce((amt, tot) => amt + tot)
                     }
                 })
-                console.log(closest);
-                console.log(value)
-                modal(closest, value)
+                modal(last, value);
+                postUser();
             })
         }
 
-        function modal(closest, value) {
-            $("#matchName").text(closest.name);
-            $("#matchScore").text(value)
+        function modal(last, value) {
+            $("#matchName").text(last.name);
+            $("matchScore").text(value);
+            $("#matchImg").attr("src", last.image);
             $(".modal").show();
             $(".main").hide();
         }
+
+
+
 
 
 

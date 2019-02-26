@@ -23,7 +23,7 @@
     Head to the Beach
     Explore the countryside
     Adventure into the mines
-    Take a bus to the Casino
+    Take a bus to the Desert/Casino
     Stay home and relax
 
 5. Which festival is your favorite?
@@ -67,4 +67,6 @@
     Blah
     Blah
     Blah
+
+
     
