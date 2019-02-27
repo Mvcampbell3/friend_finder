@@ -706,15 +706,18 @@
                     } else {
                         value = oldDiff.reduce((amt, tot) => amt + tot)
                     }
+                    // debugger;
                 })
+                debugger;
                 modal(last, value);
                 postUser();
             })
         }
 
         function modal(last, value) {
+            debugger;
             $(".matchName").text(last.name);
-            $("matchScore").text(value);
+            $("#matchScore").text(value);
             $("#matchImg").attr("src", last.image);
             $(".modal").show();
             $(".main").hide();
