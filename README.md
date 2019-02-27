@@ -13,12 +13,16 @@ that take this survey in the future! They score you get back from your match wil
 
 ### Screenshots:
 
+#### Landing Page
 ![alt text](./screenshots/home.png "Landing Page")
 
+#### View Matches Page
 ![alt text](./screenshots/matches.png "View Matches Section")
 
+#### Survey Page
 ![alt text](./screenshots/survey.png "Survey")
 
+#### Your Match!
 ![alt text](./screenshots/match.png "Match")
 
 There isn't a screenshot of the Matches API screen. Weird...

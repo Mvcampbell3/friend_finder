@@ -202,25 +202,7 @@ let matches = [
             5,
             3
         ]
-    },
-    {
-        name: "Lazy Man 5000",
-        gender: "Male",
-        image: "http://www.opinions.ng/wp-content/uploads/2017/04/Lazy.jpg",
-        score: [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-        ]
     }
-
 ];
 
 let male = [
