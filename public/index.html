@@ -141,6 +141,24 @@
             }
         }
 
+        .cloud{
+            background: url("http://clipart-library.com/images/8TznLaRXc.png");
+            height: 200px;
+            width: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            z-index: -1;
+            right: -200px;
+            top: 50px;
+            animation: driftLeft 45s 15s infinite linear;
+        }
+
+        @keyframes driftLeft{
+            0% {right: -200px}
+            100% {right: 2000px}
+        }
+
         @media (max-width: 1300px) {
             .boxes {
                 flex-direction: column;
@@ -175,6 +193,7 @@
     <div class="container">
         <div class="mountain"></div>
         <div class="back-mountains"></div>
+        <div class="cloud"></div>
         <div class="main">
             <div class="sign">
                 <div class="wrapper">
